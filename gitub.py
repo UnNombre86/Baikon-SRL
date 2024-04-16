@@ -18,11 +18,6 @@ cmd = "git remote set-url origin https://github.com/unnombre86/Baikon-SRL.git"
 subprocess.call(cmd, shell=True)
 
 cmd = "git push "
-child_process = popen_spawn.PopenSpawn(cmd)
-child_process.expect('User')
-child_process.sendline(user)
-child_process.expect('Password')
-child_process.sendline(password)
-print('returned value:', returned_value)
+subprocess.call(cmd, shell=True)
 
 print('end of commands')
