@@ -3,8 +3,8 @@ from scipy.io.wavfile import write
 from flask import Flask, send_file
 import io
 import os
-import git
-
+import subprocess
+from pexpect import popen_spawn
 
 app = Flask(__name__)
 
@@ -14,20 +14,8 @@ port = 5000
 
 # Parámetros para la generación de audio de latidos del corazón
 sample_rate = 44100  # Frecuencia de muestreo en Hz
-duration_per_beat = 0.8  # Duración de cada latido en segundos
-num_beats = 10  # Número total de latidos a simular
-
-def subir_archivos_a_git(repo_path, files_to_add, commit_message):
-    try:
-        repo = git.Repo()
-        remote=repo.create_remote('origin', url=('https:/github.com/unnombre86/Baikon-SRL.git'))
-        repo.index.add(['heartbeats.wav'])
-        repo.index.commit('ola')
-        repo.remotes.origin.push()
-
-        print("Archivos subidos a Git correctamente.")
-    except Exception as e:
-        print("Ocurrió un error al subir archivos a Git:", e)
+duration_per_beat = 1.5  # Duración de cada latido en segundos
+num_beats = 16  # Número total de latidos a simular
 
 def generate_heartbeat_audio():
     # Frecuencias características del latido cardiaco (en Hz)
@@ -52,23 +40,27 @@ def generate_heartbeat_audio():
     
     return normalized_signal
 
-@app.route('/')
-def index():
-    # Generar audio con una secuencia de latidos del corazón
-    heartbeats_audio = np.concatenate([generate_heartbeat_audio() for _ in range(num_beats)])
+heartbeats_audio = np.concatenate([generate_heartbeat_audio() for _ in range(num_beats)])
     
-    # Guardar el audio en memoria (en un archivo temporal en bytes)
-    audio_io = io.BytesIO()
-    write(audio_io, sample_rate, heartbeats_audio)
-    audio_io.seek(0)
-    
-    # Enviar el audio como archivo WAV para reproducir en la página web
-    file_path = os.path.join(os.getcwd(), 'heartbeats_audio.wav')
-    with open(file_path, 'wb') as file:
-        file.write(audio_io.read())
+audio_io = io.BytesIO()
+write(audio_io, sample_rate, heartbeats_audio)
+audio_io.seek(0)
 
-    subir_archivos_a_git("D:/pag-serv/", ["heartbeats.wav"], "aseratoketestoymirandoperobosniai")
-    return send_file(audio_io, mimetype='audio/wav')
+# Enviar el audio como archivo WAV para reproducir en la página web
+file_path = os.path.join(os.getcwd(), 'heartbeats.wav')
+with open(file_path, 'wb') as file:
+    file.write(audio_io.read())
 
-if __name__ == '__main__':
-    app.run(host=host, port=port)
+cmd = "cd D:\\pag-serv"
+returned_value = subprocess.call(cmd, shell=True)  # returns the exit code in unix
+
+cmd = "git add heartbeats.wav" 
+subprocess.call(cmd, shell=True)
+
+cmd = 'git commit -m "python project update"'
+subprocess.call(cmd, shell=True)
+
+cmd = "git push "
+subprocess.call(cmd, shell=True)
+
+print('end of commands')
