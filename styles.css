@@ -52,7 +52,8 @@ header {
   }
 
   img {
-    height: 65px;
+    height: 100%;
+    width: 120%;
   }
   svg {
     border-radius: 10px;
