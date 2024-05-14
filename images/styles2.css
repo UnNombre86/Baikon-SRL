@@ -19,6 +19,7 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
+
 }
 
 
@@ -307,15 +308,52 @@ main {
   align-items: center;
   justify-content: center;
   min-height: 10vh;
-  
+  padding: 40px;
+  flex-wrap: wrap;
+}
+.card:hover{
+  box-shadow: 0 5px 15px rgba(3, 89, 92, .5);
+  transform: translateY(-15px);
 }
 .card{
   position: relative;
-  width: 230px;
+  width: 213.60px;
   height: 350px;
   margin: 20px;
-  
+  overflow: hidden;
+  transition: .5s;
 }
+.card .front .head{
+  height: 125px;
+  width:100%;
+  position: relative;
+}
+.card .front .head .circle{
+  position:absolute;
+  width: 230px;
+  height: 210px;
+  border-radius: 100%;
+  background: #38bec5;
+  bottom: 0;
+}
+
+.card .head .img{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  padding: 5px;
+  border-radius: 50%;
+  bottom: -30%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.card .head .img img{
+ width:100% ;
+ height: 100%;
+ border-radius: 50%;
+ object-fit: cover;
+}
+
 .card .face{
   position: absolute;
   width: 100%;
@@ -328,31 +366,23 @@ main {
 .card .front{
   transform: perspective(600px) rotateY(0deg);
   box-shadow: 0 5px 10px #0000;
+  background-color: #eeeee9;
 }
-.card .face h2{
-  position: relative;
-  width: 100%;
-  height: 0%;
-  object-fit: cover;
-  
 
-}
 .card .front img{
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.card .front h2{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 45px;
-  color: #fff;
-  background: rgba(0,0,0, .4);
+.card .front .descripcion {
+  height: 200px;
+  padding:40px 20px 20px 20px;
+  border-bottom: solid 1px rgba(6, 74, 76, .18);
   text-align: center;
   
 }
+
 
 .card .back{
   transform: perspective(600px) rotateY(180deg);
