@@ -303,6 +303,12 @@ main {
     display: flex;
   }
 }
+
+
+
+
+
+
 .SI{
   display: flex;
   align-items: center;
@@ -418,21 +424,46 @@ main {
   transform: perspective(600px) rotateY(360deg);
 }
 
-#nombre {
-  width: fit-content;
-  height: fit-content;
-  font-weight: 1000;
-  font-size: 30px;
-  font-family: Kanit;
-  margin-left: 20px;
-  line-height: 25px;
-}
+
+
+.card .back {
+  box-sizing: border-box;
+  display: grid;
+  height: 400px;
+  width: 300px;
+  background: #212029;
+  border-radius: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  row-gap: 10px;
+  column-gap: 10px;
+  padding: 15px;
+  .presentar {
+    display: flex;
+    align-items: center;
+    height: fill;
+    background: #26ddfd;
+    border-radius: 15px;
+    grid-column: 1 / 6;
+    overflow: hidden;
+    #nombre {
+      width: fit-content;
+      height: fit-content;
+      font-weight: 1000;
+      font-size: 30px;
+      font-family: Kanit;
+      margin-left: 20px;
+      line-height: 25px;
+    }
+  }
+
 .Info {
   background: #196aff;
   grid-column: 1/4;
   grid-row: 2/4;
   border-radius: 25px 0 0;
   align-content: center;
+  display: block;
  
   ul {
     list-style: "- ";
@@ -440,4 +471,19 @@ main {
     font-family: Sans-serif;
     font-weight: 1000;
   }
+}
+.Clase {
+  background: #00bfff;
+  grid-row: 2/3;
+  grid-column: 4/6;
+  border-radius: 0 25px 0 0;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 90%;
+  height: 100%;
+  ul {
+    list-style: none;
+    margin-left: -20px;
+  }
+}
 }
