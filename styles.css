@@ -187,7 +187,7 @@ main {
     }
     audio {
       height: 50px;
-      width: 200x;
+      width: 100%;
     }
   }
   #audio:hover {
