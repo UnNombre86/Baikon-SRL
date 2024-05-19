@@ -179,7 +179,6 @@ main {
     align-items: center;
     grid-column: 1/4;
     grid-row: 2/3;
-    width:100%;
 
     h1 {
       font-size: 130%;
