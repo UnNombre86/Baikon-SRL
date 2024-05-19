@@ -179,9 +179,10 @@ main {
     align-items: center;
     grid-column: 1/4;
     grid-row: 2/3;
+    width:100%;
 
     h1 {
-      font-size: 150%;
+      font-size: 130%;
       margin: 0;
       margin-bottom: 10px;
     }
@@ -210,7 +211,7 @@ main {
       font-size: 75%;
     }
     h2 {
-      font-size: 100%;
+      font-size: 80%;
     }
     #percentage {
       display: flex;
