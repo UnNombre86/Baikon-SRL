@@ -13,16 +13,19 @@ html {
   overflow-x: hidden;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 body {
   display: flex;
   margin: 0;
   position: absolute;
   height: 100%;
   width: 100%;
-
 }
-
-
 
 section.shade {
   z-index: 998;
@@ -183,14 +186,13 @@ main {
     align-items: center;
     grid-column: 1/4;
     grid-row: 2/3;
-    
 
     h1 {
       font-size: 150%;
       margin: 0;
       margin-bottom: 10px;
     }
-    
+
     audio {
       height: 50px;
       width: 200px;
@@ -304,12 +306,7 @@ main {
   }
 }
 
-
-
-
-
-
-.SI{
+.SI {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -317,25 +314,22 @@ main {
   padding: 40px;
   flex-wrap: wrap;
 }
-.card:hover{
-  box-shadow: 0 5px 15px rgba(3, 89, 92, .5);
-  transform: translateY(-15px);
-}
-.card{
+
+.card {
   position: relative;
-  width: 213.60px;
+  width: 213.6px;
   height: 350px;
   margin: 20px;
   overflow: hidden;
-  transition: .5s;
+  transition: 0.5s;
 }
-.card .front .head{
+.card .front .head {
   height: 125px;
-  width:100%;
+  width: 100%;
   position: relative;
 }
-.card .front .head .circle{
-  position:absolute;
+.card .front .head .circle {
+  position: absolute;
   width: 230px;
   height: 210px;
   border-radius: 100%;
@@ -343,7 +337,7 @@ main {
   bottom: 0;
 }
 
-.card .head .img{
+.card .head .img {
   width: 150px;
   height: 150px;
   position: absolute;
@@ -353,29 +347,29 @@ main {
   left: 50%;
   transform: translate(-50%);
 }
-.card .head .img img{
- width:100% ;
- height: 100%;
- border-radius: 50%;
- object-fit: cover;
+.card .head .img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.card .face{
+.card .face {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
   border-radius: 10px;
   overflow: hidden;
-  transition: .5s;
+  transition: 0.5s;
 }
-.card .front{
+.card .front {
   transform: perspective(600px) rotateY(0deg);
   box-shadow: 0 5px 10px #0000;
   background-color: #eeeee9;
 }
 
-.card .front img{
+.card .front img {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -383,107 +377,122 @@ main {
 }
 .card .front .descripcion {
   height: 200px;
-  padding:40px 20px 20px 20px;
-  border-bottom: solid 1px rgba(6, 74, 76, .18);
+  padding: 40px 20px 20px 20px;
+  border-bottom: solid 1px rgba(6, 74, 76, 0.18);
   text-align: center;
-  
 }
 
-
-.card .back{
+.card .back {
   transform: perspective(600px) rotateY(180deg);
   background: rgb(0, 0, 0);
   padding: 15px;
-  color: #f3f3f3;
+  color: #000000;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  box-shadow: 0 5px 10px #000;
 }
-.card .black .link{
+.card .black .link {
   border-top: solid 1px #f3f3f3;
   height: 50px;
   line-height: 50px;
 }
-.card .black .link a{
+.card .black .link a {
   color: #f3f3f3;
 }
-.card .back h3{
+.card .back h3 {
   font-size: 30px;
   margin-top: 20px;
   letter-spacing: 1px;
 }
-.card .back p{
+.card .back p {
   letter-spacing: 1px;
 }
-.card:hover .front{
+.card:hover .front {
   transform: perspective(600px) rotateY(180deg);
 }
-.card:hover .back{
+.card:hover .back {
   transform: perspective(600px) rotateY(360deg);
 }
 
-
-
 .card .back {
+  display: grid;
+
   box-sizing: border-box;
   display: grid;
-  height: 400px;
-  width: 300px;
-  background: #212029;
+  height: 100%;
+  width: 100%;
+  background: #dedee4e3;
   border-radius: 20px;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
   row-gap: 10px;
   column-gap: 10px;
   padding: 15px;
-  .presentar {
+  .presentación {
     display: flex;
     align-items: center;
     height: fill;
     background: #26ddfd;
     border-radius: 15px;
-    grid-column: 1 / 6;
+    grid-column: 1 / 5;
+
     overflow: hidden;
     #nombre {
       width: fit-content;
       height: fit-content;
-      font-weight: 1000;
-      font-size: 30px;
+      font-weight: 900;
+      font-size: 20px;
       font-family: Kanit;
       margin-left: 20px;
       line-height: 25px;
     }
   }
 
-.Info {
-  background: #196aff;
-  grid-column: 1/4;
-  grid-row: 2/4;
-  border-radius: 25px 0 0;
-  align-content: center;
-  display: block;
- 
-  ul {
-    list-style: "- ";
-    line-height: 150%;
-    font-family: Sans-serif;
-    font-weight: 1000;
+  .Info {
+    background: #196aff;
+    grid-column: 1/4;
+    grid-row: 2/4;
+    border-radius: 25px 0 0;
+    align-content: center;
+    display: block;
   }
-}
-.Clase {
-  background: #00bfff;
-  grid-row: 2/3;
-  grid-column: 4/6;
-  border-radius: 0 25px 0 0;
-  font-family: sans-serif;
-  font-weight: 700;
-  font-size: 90%;
-  height: 100%;
-  ul {
-    list-style: none;
-    margin-left: -20px;
+  .Clase {
+    background: #00bfff;
+    grid-row: 2/3;
+    grid-column: 4/6;
+    border-radius: 0 25px 0 0;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 90%;
+    height: 100%;
+    ul {
+      list-style: none;
+      margin-left: -36px;
+    }
   }
-}
+  .Cargos {
+    background: #21ffcf;
+    grid-row: 3/5;
+    grid-column: 4/6;
+    border-radius: 0 0 0 25px;
+    align-content: center;
+    font-weight: 800;
+    ul {
+      margin-left: -20px;
+      list-style: "- ";
+    }
+  }
+  .Titulo {
+    display: flex;
+    background: #21ff90;
+    grid-row: 4/5;
+    grid-column: 1/4;
+    border-radius: 0 0 25px;
+    line-height: 25px;
+    font-size: 115%;
+    font-weight: 800;
+    align-items: center;
+    justify-content: center;
+  }
 }
