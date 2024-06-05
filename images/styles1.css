@@ -1,0 +1,640 @@
+html {
+    background: linear-gradient(
+      30deg,
+      rgb(2, 255, 234) 0%,
+      rgb(0, 110, 255) 50%,
+      rgb(150, 3, 248) 100%
+    );
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+
+  body {
+    transition: margin-left 0.3s;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    margin: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    
+  }
+  
+  .container{
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+   
+  }
+  
+  section {
+    z-index: 998;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    transition: 0.5s;
+    margin-left: -2000px;
+    transition-property: background-color;
+  }
+  section.active {
+    background-color: rgb(0, 0, 0, 0.5);
+    margin-left: 0;
+  }
+  
+  header {
+    box-shadow: 0px -16px 57px 30px rgba(0, 0, 0, 0.41);
+    z-index: 1000;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    height: 75px;
+    width: 100%;
+    background: white;
+    box-sizing: border-box;
+    padding: 5px 15px;
+   
+    div {
+      width: 65px;
+    }
+  
+    img {
+      height: 100%;
+      width: 5%;
+      display: unset;
+      margin: auto;
+     
+    }
+    svg {
+      border-radius: 10px;
+      transition: 0.2s;
+    }
+  }
+  
+  nav {
+    position: fixed;
+    z-index: 999;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: -125px;
+    width: 100%;
+    height: 200px;
+    background: white;
+    transition: 0.5s;
+    padding: 0px 50px;
+    transition-delay: 0s;
+    transition-property: margin;
+  
+    #redes {
+      display: none;
+    }
+  
+    a {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+      font-size: 150%;
+      font-weight: 700;
+      color: black;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      width: 100%;
+      border-radius: 20px;
+      border: solid 5px;
+      border-color: transparent;
+      transition: 0.2s;
+    }
+    a:hover {
+      border-color: rgb(2, 255, 234);
+    }
+  }
+  nav.active {
+    margin-top: 75px;
+  }
+  #Close {
+    display: none;
+    rotate: -90deg;
+    transition: 0.5s;
+  }
+  #Close.active {
+    display: block;
+    rotate: 0deg;
+  }
+  
+  #Menu {
+    display: block;
+    rotate: 0deg;
+    transition: 0.5s;
+  }
+  #Menu.active {
+    display: none;
+    rotate: 90deg;
+  }
+  
+  main {
+    font-family: Roboto;
+    box-sizing: border-box;
+    margin: 125px auto auto auto;
+    height: fit-content;
+    width: 85%;
+    background: rgba(128, 128, 128, 0.534);
+    display: grid;
+    grid-row-gap: 5px;
+    grid-column-gap: 5px;
+    padding: 30px;
+  
+    #ecg {
+      border: solid 5px;
+      border-radius: 10px;
+      border-color: transparent;
+      transition: 0.2s;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-column: 1/4;
+      grid-row: 1/2;
+  
+      h1 {
+        font-size: 150%;
+      }
+  
+      img {
+        width: 100%;
+        height: auto;
+      }
+      img:hover {
+        filter: brightness(80%);
+      }
+    }
+    #ecg:hover {
+      border-color: aqua;
+    }
+  
+    #audio {
+      border: solid 5px;
+      border-radius: 10px;
+      border-color: transparent;
+      transition: 0.2s;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-column: 1/4;
+      grid-row: 2/3;
+  
+      h1 {
+        font-size: 130%;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+      audio {
+        height: 50px;
+        width: 175pz;
+      }
+    }
+    #audio:hover {
+      border-color: aqua;
+    }
+  
+    #oxim {
+      border: solid 5px;
+      border-radius: 10px;
+      border-color: transparent;
+      transition: 0.2s;
+      padding: 5px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      grid-column: 1/4;
+      grid-row: 3/4;
+  
+      h1 {
+        font-size: 75%;
+      }
+      h2 {
+        font-size: 80%;
+      }
+      #percentage {
+        display: flex;
+      }
+    }
+    #oxim:hover {
+      border-color: aqua;
+    }
+    #oxim.danger {
+      background: rgb(192, 0, 0);
+      border-color: rgb(82, 0, 0);
+    }
+  }
+  
+  @media (min-width: 600px) {
+    main {
+      padding: 10px;
+      row-gap: 20px;
+  
+      #audio {
+        grid-column: 1/4;
+        font-size: 150%;
+  
+        audio {
+          height: 50px;
+          width: 350px;
+          margin-bottom: 0;
+        }
+      }
+  
+      #oxim {
+        margin: 0px 50px 25px 50px;
+        h1 {
+          font-size: 150%;
+        }
+        h2 {
+          font-size: 175%;
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    nav {
+      height: 100%;
+      width: 200px;
+      margin-top: 0;
+      margin-left: -200px;
+      justify-content: space-between;
+      padding: 0;
+      padding-top: 100px;
+  
+      #menu {
+        a {
+          height: 100px;
+          width: 100%;
+        }
+      }
+  
+      #redes {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        width: 100%;
+        aspect-ratio: 1/1;
+        padding: 20px;
+        row-gap: 20px;
+        column-gap: 20px;
+        a {
+          height: 100%;
+          width: 100%;
+          border: 0;
+        }
+        a:hover {
+          background: aqua;
+        }
+      }
+    }
+    nav.active {
+      margin: 0;
+    }
+    main {
+      #ecg {
+        grid-column: 1/3;
+        grid-row: 1/3;
+        align-content: center;
+        a {
+          width: 100%;
+        }
+      }
+      #audio {
+        justify-content: center;
+        grid-column: 3/4;
+        grid-row: 1/2;
+  
+        audio {
+          margin-top: 50px;
+          width: 100%;
+        }
+      }
+      #oxim {
+        grid-column: 3/4;
+        grid-row: 2/3;
+      }
+    }
+  }
+
+  
+.hero {
+    background: linear-gradient(rgba(0, 43, 102, 0.7), rgba(0, 51, 102, 0.7)), url('banner.jpg') no-repeat center center/cover;
+    color: white;
+    min-height: 30vh; /* Reducir la altura mínima */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding:  100px;
+}
+
+.hero h1 {
+    font-size: 2.5em; /* Reducir el tamaño del texto */
+    margin-bottom: 10px; /* Reducir el margen inferior */
+    animation: fadeInUp 1s ease;
+}
+
+.hero p {
+    font-size: 1em; /* Reducir el tamaño del texto */
+    margin-bottom: 20px; /* Reducir el margen inferior */
+    animation: fadeInUp 1s ease;
+}
+
+.SI{
+    padding-top: 60px;
+   
+  
+   
+}
+ .nosotros {
+  
+    padding-top: 0px; /* Agregar un espacio superior igual a la altura del header */
+    background: #8ec5f1;
+    text-align: center;
+    padding: 100px ;
+}
+
+.nosotros .container {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 0 20px;
+}
+
+.nosotros-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nosotros-text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.nosotros-text h2 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    animation: fadeInUp 1s ease;
+}
+
+.nosotros-text p {
+    font-size: 1.2em;
+    animation: fadeInUp 1s ease;
+}
+
+.nosotros-image {
+    flex: 1;
+    text-align: center;
+    width: 50%; /* Ancho de la imagen */
+}
+
+.nosotros-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    animation: fadeInUp 1s ease;
+}
+
+.productos {
+    padding: 100px 0;
+    background-color: #f9f9f9;
+}
+
+.productos h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInUp 1s ease;
+}
+
+.product-item {
+    text-align: center;
+    margin: 20px;
+    animation: fadeInUp 1s ease;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.product-item h3 {
+    margin-bottom: 10px;
+}
+
+.product-item p {
+    margin-bottom: 20px;
+}
+
+.product-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.por-que-elegirnos {
+    padding: 100px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.por-que-elegirnos h2 {
+    margin-bottom: 40px;
+    animation: fadeInUp 1s ease;
+}
+
+.reasons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.reason-item {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
+}
+
+.reason-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.reason-item h3 {
+    margin-bottom: 10px;
+}
+
+.reason-item p {
+    margin-bottom: 0;
+}
+
+.reason-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+footer nav ul li:last-child {
+    margin-right: 0;
+}
+
+footer nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer nav ul li a:hover {
+    color: #FFD700;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Estilos para la sección "Misión y Visión" */
+.mision-vision {
+  padding: 100px 0; /* Espaciado interno */
+  background-color: ( rgb(2, 255, 234) 0%,
+  rgb(0, 110, 255) 50%,
+  rgb(150, 3, 248) 100%,); /* Color de fondo */
+   text-align: center; /* Centrar texto */
+}
+
+/* Contenedor dentro de "Misión y Visión" */
+.mision-vision .container {
+  display: flex; /* Uso de Flexbox */
+  justify-content: space-around; /* Espacio alrededor de los elementos */
+  align-items: flex-start; /* Alineación superior */
+  
+  gap: 20px; /* Espacio entre elementos */
+}
+
+/* Título en "Misión y Visión" */
+.mision-vision h2 {
+  margin-bottom: 20px; /* Margen inferior */
+  font-size: 2em; /* Tamaño de fuente */
+  color: #003366; /* Color del texto */
+  animation: fadeInUp 1s ease; /* Animación */
+  border-bottom: 2px solid #003366; /* Línea inferior */
+  display: inline-block; /* Para ajustar el ancho de la línea */
+  padding-bottom: 10px; /* Espacio inferior */
+}
+
+/* Contenedor de misión y visión */
+.mision-vision-item {
+  flex: 1; /* Flexibilidad */
+  margin: 20px; /* Margen */
+  max-width: 45%; /* Ancho máximo */
+  background: #fff; /* Color de fondo */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  padding: 20px; /* Espaciado interno */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición */
+  text-align: center; /* Centrar texto */
+  display: flex; /* Uso de Flexbox */
+  flex-direction: column; /* Dirección de columna */
+  align-items: center; /* Centrar elementos */
+}
+
+/* Imagen en el contenedor de misión y visión */
+.mision-vision-item img {
+  width: 100%; /* Ancho completo */
+  border-radius: 10px 10px 0 0; /* Bordes redondeados arriba */
+}
+
+/* Párrafo en el contenedor de misión y visión */
+.mision-vision-item p {
+  font-size: 1.2em; /* Tamaño de fuente */
+  animation: fadeInUp 1s ease; /* Animación */
+  text-align: justify; /* Justificar texto */
+  color: #555; /* Color del texto */
+  line-height: 1.6; /* Altura de línea */
+  padding: 20px; /* Espaciado interno */
+}
+
+/* Efecto hover para misión y visión */
+.mision-vision-item:hover {
+  transform: scale(1.05); /* Escalado */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+/* Animaciones */
+
+/* Animación de desvanecimiento y desplazamiento hacia arriba */
+@keyframes fadeInUp {
+  0% {
+      opacity: 0; /* Opacidad inicial */
+      transform: translateY(20px); /* Desplazamiento inicial */
+  }
+  100% {
+      opacity: 1; /* Opacidad final */
+      transform: translateY(0); /* Desplazamiento final */
+  }
+}
